@@ -66,7 +66,7 @@ resource "aws_instance" "cec2" {
     ami = "ami-0614680123427b75e"
     instance_type = "t2.micro"
     key_name = "ec2m"
-    vpc_security_group_ids = [ "sg-0c4114abfd5d0d824"]
+    vpc_security_group_ids = aws_security_group.allow_ssh_http.id
     subnet_id     = aws_subnet.csub2.id
     tags = {
       ok = "custom ec2"
